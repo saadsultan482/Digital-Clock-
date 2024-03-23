@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="x-icon/image" href="/icon.png">
+    <link rel="stylesheet" href="/style.css">
+    <title>Digital Clock</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1> digital clock </h1>
+        <div class="cont">
+            <div class="clock">
+                <span id="hrs">00</span>
+                <span>:</span>
+                <span id="min">00</span>
+                <span>:</span>
+                <span id="sec">00</span>
+                <span id="ampm">AM/PM</span>
+            </div>
+            <div class="social">
+                <h4> <a href="https://www.linkedin.com/in/saad-sultan-aa4925219/">linkedIn Profile</a></h4>
+                <h4> <a href="https://github.com/saadsultan482">GitHub Profile</a></h4>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        let hrs = document.getElementById('hrs');
+        let min = document.getElementById('min');
+        let sec = document.getElementById('sec');
+        let ampm = document.getElementById('ampm')
+
+
+        setInterval(() => {
+            let currentTime = new Date();
+
+            let hours = currentTime.getHours();
+            let ampmValue = hours >= 12 ? 'PM' : 'AM';
+
+            hours = hours % 12;
+            hours = hours ? hours : 12;
+
+            hrs.innerHTML = (hours < 10 ? "0" : "") + hours;
+            min.innerHTML = (currentTime.getMinutes() < 10 ? "0" : "") + currentTime.getMinutes();
+            sec.innerHTML = (currentTime.getSeconds() < 10 ? "0" : "") + currentTime.getSeconds();
+
+            ampm.innerHTML = ampmValue;
+
+        }, 1000);
+
+    </script>
+</body>
+
+</html>
